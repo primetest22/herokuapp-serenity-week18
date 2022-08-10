@@ -50,7 +50,7 @@ public class BookingCURDTest extends TestBase {
         bookingsDatesData.put("checkin", "2018-01-01");
         bookingsDatesData.put("checkout", "2019-01-01");
         ValidatableResponse response = createBookingSteps.createBooking(firstname, lastname,totalprice,depositpaid,bookingsDatesData,additionalneeds);
-        response.log().all().statusCode(200);
+        response.log().all().statusCode(201);
         bookingID= response.log().all().extract().path("bookingid");
         HashMap<?,?>bookingMap= response.log().all().extract().path("");
         Assert.assertThat(bookingMap,anything(firstname));
